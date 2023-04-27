@@ -1,7 +1,14 @@
+import React from 'react';
+import NavBar from './components/Navbar';
+import Button from 'react-bootstrap/Button';
 
-function App() {
+const App = () => {
   return (
-    <h1>hi</h1>
+    <div className="App">
+      <NavBar />
+      <Button>sup</Button>
+      <h1> Hello World</h1>
+    </div>
   );
 }
 

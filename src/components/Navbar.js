@@ -4,30 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
+import { ShoppingCart } from "phosphor-react";
+import "./navbar.css";
 
 function NavBar() {
   return (
-    <Navbar bg="secondary" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">Cool Apparel</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search for anything"
-              className="me-2"
-              aria-label="Search"
-            />
-            </Form>
-            <Button variant="success">Search</Button>
-            <Button variant="primary">Sign in</Button>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="navbar">
+      <div className="links">
+        <Link to="/"> Shop </Link>
+        <Link to="/contact"> Contact </Link>
+        <Link to="/cart">
+          <ShoppingCart size={32} />
+        </Link>
+      </div>
+    </div>
   );
 }
 
 export default NavBar;
+

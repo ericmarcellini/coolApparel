@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-/*import StarRatings from "react-star-ratings"*/
+import StarRatings from "react-star-ratings"
 import NavBar from './Navbar';
 import './sass/main.scss';
 
@@ -65,14 +65,14 @@ const MainView = () => {
                                 </p>
                                 <p className='card-price'>${product.price}</p>
                                 <div className='card-detail'>
-                                    {/*
+                                    {
                                     <StarRatings
                                         rating={product.rating.rate}
                                         starDimension='16px'
                                         starSpacing='1px'
                                         starRatedColor='black' 
                                     />
-                                    */}
+                                    }
                                     <span>Stock:{product.rating.count}</span>
                                 </div>    
                             </div>    

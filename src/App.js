@@ -35,7 +35,10 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="all">
+      <header className="brandName">
+        <h1>CoolApparel</h1>
+      </header>
       <section className="product">
         <div className="container">
           <input
@@ -62,7 +65,7 @@ const App = () => {
                   <p className="card-description">
                     {Truncate(product.description, 55)}
                   </p>
-                  <p className="card-price">${product.price}</p>
+                  <p className="card-price">€{product.price}</p>
                   <div className="card-detail">
                     <StarRatings
                       rating={product.rating.rate}
@@ -78,7 +81,7 @@ const App = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

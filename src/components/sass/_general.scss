@@ -18,4 +18,16 @@
   @include min-width(xl){
     max-width:1140px;
   }
+
+  /*background-color: lightgray; */
+}
+.all{
+    /*background-color: gray; */
+}
+
+h1{
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    font-family: sans-serif;
 }

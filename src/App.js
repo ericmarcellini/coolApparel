@@ -4,17 +4,18 @@ import StarRatings from "react-star-ratings";
 import './components/sass/main.scss'; // Relative path to the main.scss file
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
+  // State variables using useState
+  const [products, setProducts] = useState([]); // Array to hold products data
+  const [search, setSearch] = useState(""); // State for search input value
 
+  // useEffect hook to fetch data when component mounts
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => setProducts(res.data));
-  }, []);
+      .get("https://fakestoreapi.com/products") // Fetching products data from fakestoreapi
+      .then((res) => setProducts(res.data)); // Setting fetched data to products state
+  }, []); // Empty dependency array ensures this effect runs only once when component mounts
 
-  console.log(products);
-
+  // Filtering products based on search input
   const searchProduct = products.filter((product) => {
     return Object.keys(product).some((key) =>
       product[key]
@@ -24,6 +25,7 @@ const App = () => {
     );
   });
 
+  // Function to truncate string
   const Truncate = (string, number) => {
     if (!string) {
       return null;
@@ -34,6 +36,7 @@ const App = () => {
     return string.slice(0, number) + "...";
   };
 
+  // JSX structure of the component
   return (
     <div className="all">
       <header className="brandName">
@@ -41,13 +44,15 @@ const App = () => {
       </header>
       <section className="product">
         <div className="container">
+          {/* Input for filtering products */}
           <input
             className="product-input"
             placeholder="Product Filter"
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
+            onChange={(e) => setSearch(e.target.value)} // Updating search state on input change
+            value={search} // Binding search state to input value
           />
           <div className="grid">
+            {/* Mapping through filtered products and rendering each as a card */}
             {searchProduct.map((product) => (
               <div className="card" key={product.id}>
                 <img
@@ -60,20 +65,21 @@ const App = () => {
                     className="card-title"
                     title={product.title.length >= 50 ? product.title : null}
                   >
-                    {Truncate(product.title, 55)}
+                    {Truncate(product.title, 55)} {/* Truncate title if longer than 55 characters */}
                   </h5>
                   <p className="card-description">
-                    {Truncate(product.description, 55)}
+                    {Truncate(product.description, 55)} {/* Truncate description if longer than 55 characters */}
                   </p>
                   <p className="card-price">€{product.price}</p>
+                  {/* Star ratings component */}
                   <div className="card-detail">
                     <StarRatings
-                      rating={product.rating.rate}
-                      starDimension="16px"
-                      starSpacing="1px"
-                      starRatedColor="black"
+                      rating={product.rating.rate} // Rating value
+                      starDimension="16px" // Size of stars
+                      starSpacing="1px" // Spacing between stars
+                      starRatedColor="black" // Color of rated stars
                     />
-                    <span>Stock:{product.rating.count} </span>
+                    <span>Stock:{product.rating.count} </span> {/* Display stock count */}
                   </div>
                 </div>
               </div>

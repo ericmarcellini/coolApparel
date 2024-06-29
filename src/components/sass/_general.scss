@@ -1,45 +1,128 @@
-@import "mixin";
+// Variables for reusability
+$primary-color: #007bff; // Primary color for links and accents
+$secondary-color: #6c757d; // Secondary color for text and secondary elements
+$background-dark: #303030; // Dark background color
+$background-light: #f4f4f4; // Light background color
+$border-color: aqua; // Border color
+$container-padding: 15px; // Padding for containers
 
-.container{
-  width:100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right:15px;
-  @include min-width(sm){
-    max-width:540px;
-  }
-  @include min-width(md){
-    max-width:720px;
-  }
-  @include min-width(lg){
-    max-width:960px;
-  }
-  @include min-width(xl){
-    max-width:1140px;
-  }
-
-  background-color: white;
-  border-radius: 10px;
-  border-width: 20px;
-  border-color: aqua;
-}
-.product{
-    background-color: #3b3b3b;
-    margin-top: 15px;
+// Global styles
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; // Default font family
+  background-color: $background-dark; // Dark background color for the body
+  color: $secondary-color; // Default text color
+  margin: 0; // Remove default margin
+  padding: 0; // Remove default padding
 }
 
-.product-input{
-    margin-top: 10px;
-}
-.all{
-    background-color: #303030;
+// Header styles
+.header {
+  text-align: center; // Center-align text
+  background-color: $primary-color; // Primary background color for header
+  color: white; // Text color
+  padding: 20px 0; // Vertical padding
+  margin-bottom: 20px; // Bottom margin for spacing
 }
 
-h1{
-    align-items: center;
-    justify-self: center;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
+// Container styles
+.container {
+  width: 100%; // Full width container
+  max-width: 1200px; // Maximum width for large screens
+  margin: 0 auto; // Center-align horizontally
+  padding: 0 $container-padding; // Padding on left and right sides
+  background-color: white; // Background color of the container
+  border-radius: 10px; // Rounded corners
+  border: 2px solid $border-color; // Border with width and color
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Subtle shadow effect
+}
+
+// Product section styles
+.product-section {
+  background-color: $background-light; // Light background color for products section
+  padding: 20px; // Padding for section content
+  border-radius: 10px; // Rounded corners
+  margin-top: 20px; // Top margin for spacing
+}
+
+// Product input/search field styles
+.product-input {
+  width: 100%; // Full width input field
+  padding: 10px; // Padding inside input field
+  font-size: 1rem; // Default font size
+  border: 1px solid $secondary-color; // Border color
+  border-radius: 5px; // Rounded corners
+  margin-top: 10px; // Top margin for spacing
+  transition: border-color 0.3s ease-in-out; // Smooth border color transition
+
+  &:focus {
+    outline: none; // Remove default focus outline
+    border-color: $primary-color; // Highlight border color on focus
+  }
+}
+
+// Product card styles
+.product-card {
+  background-color: white; // Background color of product card
+  border: 1px solid $secondary-color; // Border color
+  border-radius: 8px; // Rounded corners
+  overflow: hidden; // Hide overflowing content
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow effect
+  transition: transform 0.3s ease-in-out; // Smooth transform transition
+
+  &:hover {
+    transform: translateY(-5px); // Lift card on hover
+  }
+}
+
+.product-card__image {
+  width: 100%; // Full width image inside card
+  height: auto; // Maintain aspect ratio
+  object-fit: cover; // Cover image without stretching
+  border-bottom: 1px solid $secondary-color; // Border at the bottom of the image
+}
+
+.product-card__body {
+  padding: 20px; // Padding inside card body
+}
+
+.product-card__title {
+  font-size: 1.2rem; // Font size of product title
+  margin-bottom: 10px; // Bottom margin for spacing
+  color: $primary-color; // Primary color for title
+}
+
+.product-card__description {
+  color: $secondary-color; // Secondary color for description text
+  margin-bottom: 10px; // Bottom margin for spacing
+}
+
+.product-card__price {
+  font-weight: bold; // Bold font weight for price
+  color: $primary-color; // Primary color for price
+  margin-bottom: 10px; // Bottom margin for spacing
+}
+
+.product-card__detail {
+  display: flex; // Flexbox layout for detail section
+  align-items: center; // Align items vertically
+  color: $secondary-color; // Secondary color for detail text
+
+  span {
+    margin-left: 10px; // Left margin for spacing between elements
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px; // Adjust padding for smaller screens
+  }
+
+  .product-card {
+    padding: 15px; // Adjust padding inside card for smaller screens
+  }
+
+  .product-card__title {
+    font-size: 1rem; // Decrease font size for smaller screens
+  }
 }

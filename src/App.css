@@ -1,12 +1,137 @@
-.App {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+/* Wrapper for the entire application */
+.all {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+/* Header styles */
+.brandName {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.brandName h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* Product section styles */
+.product {
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product input search styles */
+.product-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-input:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight input on focus */
+}
+
+/* Grid layout for product cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual product card styles */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-description {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.card-detail {
+  display: flex;
+  align-items: center;
+}
+
+/* Star rating styles */
+.card-detail span {
+  margin-left: 10px;
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
-  body {
-    padding: 0;
-    margin: 0;
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 15px;
   }
-  /* */
+
+  .card-title {
+    font-size: 1rem;
+  }
+}
